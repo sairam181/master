@@ -17,7 +17,7 @@ annotate service.cities with @(
         {
             $Type      : 'UI.DataField',
             Value      : population,
-            @UI.Importance: #High
+            
         },
         {
             $Type: 'UI.DataField',
@@ -25,7 +25,6 @@ annotate service.cities with @(
         },
 
     ],
-    UI.LineItem.@UI.Criticality: #Critical,
     UI.SelectionVariant: {SelectOptions: [{
         $Type       : 'UI.SelectOptionType',
         PropertyName: name,
