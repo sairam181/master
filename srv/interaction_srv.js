@@ -1,25 +1,3 @@
-// const cds = require("@sap/cds");
-
-// module.exports = cds.service.impl(async function (srv) { 
-//     const {cities  } =this.entities;
-//     const db = await cds.connect.to("db");
-//     //const service = await cds.connect.to("CatalogService");
-
-//     this.on('READ', 'cities', async (req) => {
-//       const data = await this.tx(req).run(req.query);
-//       return data;
-//     });
-
-//   //   srv.on("READ", "cities", async (req) => {
-//   //     let arr = db.run(SELECT.from('cities'));
-//   //   const density = arr.population / arr.area;
-//   //    await srv.update('cities',{ density: density });
-
-
-//   // });
-
-// });
-
 
 const cds = require('@sap/cds');
 
@@ -44,11 +22,8 @@ module.exports = cds.service.impl((srv) => {
 
   srv.after('READ', 'cities', (cities) => {
     cities.forEach((city) => {
-      city.isPopulationOverOneMillion = city.population > 1000000;
+      city.criticality = city.population > 1000000 ? 1 :0;
     });
   });
-
-
-
 
 });
