@@ -2,17 +2,26 @@ using CatalogService as service from '../../srv/interaction_srv';
 
 annotate service.cities with @(
     UI.SelectionFields : [name],
-    
-    // UI.SelectionVariant: {SelectOptions: [{
-    //     $Type       : 'UI.SelectOptionType',
-    //     PropertyName: name,
-    //     Ranges      : [{
-    //         $Type : 'UI.SelectionRangeType',
-    //         Sign  : #I,
-    //         Option: #CP,
-    //         Low   : 'ABC'
-    //     }]
-    // }]}
+    UI.LineItem : {
+        $value : [
+            {
+                $Type : 'UI.DataField',
+                Value : name,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : area,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : population,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : density,
+            }
+        ]
+    }
 );
 
 annotate service.cities with @(
@@ -42,26 +51,4 @@ annotate service.cities with @(
         Target: '@UI.FieldGroup#GeneratedGroup1',
     }, ]
 );
-annotate service.cities with @(
-    UI.LineItem : {
-        $value : [
-            {
-                $Type : 'UI.DataField',
-                Value : name,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : area,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : population,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : density,
-            },
-        ],
-        // ![@UI.Criticality] : Criticality,
-    }
-);
+

@@ -22,7 +22,7 @@ module.exports = cds.service.impl((srv) => {
 
   srv.after('READ', 'cities', (cities) => {
     cities.forEach((city) => {
-      city.criticality = city.population > 1000000 ? 1 :0;
+      city.criticality = city.population > 1000000 ? 1 :3;
     });
   });
 
